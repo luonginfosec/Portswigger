@@ -611,4 +611,6 @@ Thực hiện dùng Hackvertor để bypass vượt qua WAF. Và thực hiện q
     </storeId>
 </stockCheck>
 ````
+![alt text](img/64.png)
 
+![alt text](img/65.png)
