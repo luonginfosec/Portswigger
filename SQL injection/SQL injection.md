@@ -86,6 +86,8 @@ There are lots of SQL injection vulnerabilities, attacks, and techniques, that o
 # Blind SQL injection vulnerabilities
 > Lỗ hổng SQLi mù 
 
+[Blind SQL injection](<Blind SQL injection.md>)
+
 Many instances of SQL injection are blind vulnerabilities. This means that the application does not return the results of the SQL query or the details of any database errors within its responses. Blind vulnerabilities can still be exploited to access unauthorized data, but the techniques involved are generally more complicated and difficult to perform.
 > Nhiều trường hợp SQL injection là các lỗ hổng dạng mù. Điều này có nghĩa là ứng dụng không trả về kết quả của truy vấn SQL hoặc chi tiết về bất kỳ lỗi cơ sở dữ liệu nào trong phản hồi của nó. Các lỗ hổng dạng mù vẫn có thể bị khai thác để truy cập dữ liệu trái phép, nhưng các kỹ thuật liên quan thường phức tạp hơn và khó thực hiện hơn.
 
