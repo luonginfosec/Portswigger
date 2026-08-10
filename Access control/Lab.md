@@ -38,7 +38,7 @@ E tiến hành truy cập và xóa user thành công.
 
 ![alt text](img/4.png)
 
-Lab: User role controlled by request parameter
+# Lab: User role controlled by request parameter
 
 This lab has an admin panel at /admin, which identifies administrators using a forgeable cookie.
 > Lab này có bảng quản trị tại /admin, bảng này xác định các quản trị viên sử dụng cookie có thể giả mạo.
