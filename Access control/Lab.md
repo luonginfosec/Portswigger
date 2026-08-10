@@ -154,6 +154,45 @@ E tiến hành đổi trong endpoint ```/my-account?id=``` và thành công tìm
 
 ![alt text](img/18.png)
 
+# Lab: User ID controlled by request parameter with data leakage in redirect
+
+This lab contains an access control vulnerability where sensitive information is leaked in the body of a redirect response.
+> Lab này chứa lỗ hổng kiểm soát truy cập khiến thông tin nhạy cảm bị rò rỉ trong nội dung phản hồi chuyển hướng.
+
+To solve the lab, obtain the API key for the user carlos and submit it as the solution.
+> Để giải quyết bài thí nghiệm, hãy lấy khóa API cho người dùng carlos và gửi nó dưới dạng giải pháp.
+
+You can log in to your own account using the following credentials: wiener:peter
+> Bạn có thể đăng nhập vào tài khoản của mình bằng thông tin đăng nhập sau: wiener:peter
+
+![alt text](img/28.png)
+
+E tiến hành truy cập vào tài khoản wiener:peter tại đây e vào tab my account thu được request. E tiến hành đổi thành carlos và thu được key api (`/my-account?id=carlos`)
+
+# Lab: User ID controlled by request parameter with password disclosure
+
+This lab has user account page that contains the current user's existing password, prefilled in a masked input.
+> Lab này có trang tài khoản người dùng chứa mật khẩu hiện tại của người dùng hiện tại, được điền trước bằng thông tin nhập ẩn.
+
+To solve the lab, retrieve the administrator's password, then use it to delete the user carlos.
+> Để giải quyết bài lab, hãy lấy lại mật khẩu của quản trị viên, sau đó sử dụng mật khẩu đó để xóa người dùng carlos.
+
+You can log in to your own account using the following credentials: wiener:peter
+> Bạn có thể đăng nhập vào tài khoản của mình bằng thông tin đăng nhập sau: wiener:peter
+
+![alt text](img/29.png)
+
+Truy cập vào wiener e thấy được password chỉ bị ẩn đi, có thể dễ dàng xem thấy trong source.
+
+![alt text](img/30.png)
+
+Tại endpoint ```my-account?id=``` e tiến hành nhập administrator vào thì nhận được request thành công và thu thập được password của admin là 4waczpsbyv0cug1idype
+
+![alt text](img/31.png)
+
+Từ đó e thành công truy cập admin panel và thực hiện xóa tài khoản carlos.
+
+
 # Lab: Insecure direct object references
 
 This lab stores user chat logs directly on the server's file system, and retrieves them using static URLs.
@@ -173,7 +212,7 @@ Tại nội dung đoạn chat, e thu được một giá trị mật khẩu, e t
 # Lab: Multi-step process with no access control on one step
 
 This lab has an admin panel with a flawed multi-step process for changing a user's role. You can familiarize yourself with the admin panel by logging in using the credentials administrator:admin.
-> Phòng thí nghiệm này có bảng quản trị với quy trình gồm nhiều bước chưa hoàn thiện để thay đổi vai trò của người dùng. Bạn có thể làm quen với bảng quản trị bằng cách đăng nhập bằng thông tin đăng nhập administrator:admin.
+> Lab này có bảng quản trị với quy trình gồm nhiều bước chưa hoàn thiện để thay đổi vai trò của người dùng. Bạn có thể làm quen với bảng quản trị bằng cách đăng nhập bằng thông tin đăng nhập administrator:admin.
 
 To solve the lab, log in using the credentials wiener:peter and exploit the flawed access controls to promote yourself to become an administrator.
 > Để giải quyết bài thí nghiệm, hãy đăng nhập bằng thông tin xác thực wiener:peter và khai thác các biện pháp kiểm soát truy cập thiếu sót để thăng tiến bản thân trở thành administrator.

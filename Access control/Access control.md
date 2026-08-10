@@ -196,6 +196,22 @@ This is an example of an insecure direct object reference (IDOR) vulnerability. 
 In some applications, the exploitable parameter does not have a predictable value. For example, instead of an incrementing number, an application might use globally unique identifiers (GUIDs) to identify users. This may prevent an attacker from guessing or predicting another user's identifier. However, the GUIDs belonging to other users might be disclosed elsewhere in the application where users are referenced, such as user messages or reviews.
 > Trong một số ứng dụng, tham số có thể bị khai thác không có giá trị có thể dự đoán trước. Ví dụ, thay vì sử dụng số tăng dần, ứng dụng có thể dùng mã định danh duy nhất toàn cầu (GUIDs) để xác định người dùng. Tuy nghiên, GUIDs của những người dùng khác nhau có thể bị lộ ở một số nơi khác trong ứng dụng, nơi người dùng được tham chiếu, chẳng hạn như tin nhắn của người dùng hoặc bài đánh giá.	
 
+In some cases, an application does detect when the user is not permitted to access the resource, and returns a redirect to the login page. However, the response containing the redirect might still include some sensitive data belonging to the targeted user, so the attack is still successful.
+> Trong một số trường hợp, ứng dụng có phát hiện khi người dùng không được phép truy cập vào tài nguyên và trả về một chuyển hướng đến trang đăng nhập. Tuy nhiên, phản hồi chứa chuyển hướng đó vẫn có thể bao gồm một số dữ liệu nhạy cảm thuộc về người dùng mục tiêu, do đó cuộc tấn công vẫn thành công.
+
+# Horizontal to vertical privilege escalation
+> Leo thang đặc quyền từ chiều ngang lên chiều dọc
+Often, a horizontal privilege escalation attack can be turned into a vertical privilege escalation, by compromising a more privileged user. For example, a horizontal escalation might allow an attacker to reset or capture the password belonging to another user. If the attacker targets an administrative user and compromises their account, then they can gain administrative access and so perform vertical privilege escalation.
+> Thông thường, một cuộc tấn công leo thang đặc quyền theo chiều ngang có thể được chuyển đổi thành leo thang đặc quyền theo chiều dọc, bằng cách xâm phạm một người dùng có đặc quyền cao hơn. Ví dụ, một cuộc leo thang theo chiều ngang có thể cho phép kẻ tấn công đặt lại hoặc lấy được mật khẩu của một người dùng khác. Nếu kẻ tấn công nhắm vào một người dùng quản trị và xâm phạm được tài khoản của họ, thì kẻ đó có thể giành được quyền truy cập quản trị và do đó thực hiện leo thang đặc quyền theo chiều dọc.
+
+An attacker might be able to gain access to another user's account page using the parameter tampering technique already described for horizontal privilege escalation:
+> Kẻ tấn công có thể giành quyền truy cập vào trang tài khoản của người dùng khác bằng cách sử dụng kỹ thuật giả mạo tham số đã được mô tả trước đó cho leo thang đặc quyền theo chiều ngang:
+
+`https://insecure-website.com/myaccount?id=456`
+
+If the target user is an application administrator, then the attacker will gain access to an administrative account page. This page might disclose the administrator's password or provide a means of changing it, or might provide direct access to privileged functionality.
+> Nếu người dùng mục tiêu là quản trị viên ứng dụng, thì kẻ tấn công sẽ giành được quyền truy cập vào trang tài khoản quản trị. Trang này có thể tiết lộ mật khẩu của quản trị viên hoặc cung cấp phương tiện để thay đổi mật khẩu đó, hoặc có thể cung cấp quyền truy cập trực tiếp vào các chức năng đặc quyền.
+
 # Insecure direct object references
 > Tham chiếu đối tượng trực tiếp không an toàn (IDOR)
 
